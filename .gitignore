@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+
+# Claude Code: personal, per machine
+.claude/settings.local.json
+CLAUDE.local.md
