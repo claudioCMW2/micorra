@@ -20,4 +20,10 @@ first so we can agree on the approach.
 
 ## Development setup
 
-Coming with the project scaffolding: Node 26, pnpm and one command to run every check.
+1. Install [pnpm](https://pnpm.io/installation) 12 (`npm install -g pnpm@12`). You do not need
+   Node 26 on your machine: pnpm downloads the version the project pins.
+2. `pnpm install` — also installs the git hooks (format and secret scan before each commit, commit
+   message check, and typecheck and tests before each push).
+3. `pnpm check` — lint, typecheck, architecture rules, unused code and tests. CI runs the same.
+
+Changes to a published package need a changeset: `pnpm changeset`.

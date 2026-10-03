@@ -1,0 +1,37 @@
+packages:
+  - apps/*
+  - packages/*
+
+# Supply chain: new releases wait 7 days, install scripts run only when listed.
+minimumReleaseAge: 10080
+trustPolicy: no-downgrade
+# Reviewed one by one: published without provenance long ago, still the current release line.
+trustPolicyExclude:
+  - chokidar@4.0.3
+allowBuilds:
+  lefthook: false
+
+# dependency-cruiser parses TypeScript through the compiler API, which TypeScript 7 does not ship yet.
+packageExtensions:
+  dependency-cruiser:
+    dependencies:
+      typescript: ^5.9.3
+
+catalog:
+  "@biomejs/biome": ^2.5.0
+  "@changesets/cli": ^3.0.0
+  "@commitlint/cli": ^21.2.0
+  "@commitlint/config-conventional": ^21.2.0
+  "@feature-sliced/steiger-plugin": ~0.8.0
+  "@inlang/paraglide-js": ^2.25.0
+  "@inlang/plugin-message-format": ^4.4.0
+  "@secretlint/secretlint-rule-preset-recommend": ^13.0.0
+  "@types/node": ^26.0.0
+  "@vitest/coverage-v8": ^5.0.0
+  dependency-cruiser: ^18.4.0
+  knip: ^6.38.0
+  lefthook: ^2.1.0
+  secretlint: ^13.0.0
+  steiger: ~0.7.0
+  typescript: ^7.0.2
+  vitest: ^5.0.0

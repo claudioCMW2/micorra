@@ -11,3 +11,6 @@ Thumbs.db
 # Claude Code: personal, per machine
 .claude/settings.local.json
 CLAUDE.local.md
+
+# Personal git hook overrides
+lefthook-local.yml
