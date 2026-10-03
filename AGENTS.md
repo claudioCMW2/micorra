@@ -4,7 +4,25 @@ Micorra is a local MCP gateway ("LiteLLM, but for MCP"): a daemon that connects 
 and local MCP servers, exposes only what is configured, and measures token cost. See
 [README.md](README.md).
 
-**Status:** early development; the scaffolding is not in place yet.
+**Status:** early development; the workspace and its checks are in place, the product code is not.
+
+## Commands
+
+| Command | What it checks |
+|---|---|
+| `pnpm install` | Installs dependencies, the pinned Node 26 runtime and the git hooks |
+| `pnpm check` | Everything below except Steiger and secretlint: run it before every commit |
+| `pnpm lint` / `pnpm format` | Biome lint and format (`format` applies fixes) |
+| `pnpm typecheck` | TypeScript 7, every package |
+| `pnpm test` | Vitest, every package |
+| `pnpm lint:deps` | dependency-cruiser: no cycles, nothing imported from outside this repository |
+| `pnpm lint:unused` | knip: unused files, exports and dependencies |
+| `pnpm lint:fsd` | Steiger (Feature-Sliced Design); joins `check` with the first dashboard code |
+| `pnpm lint:secrets` | secretlint over the whole tree (the pre-commit hook runs it on staged files) |
+
+Packages are ES modules run by Node's type stripping: erasable TypeScript only, imports with `.ts`
+extensions. A new dependency goes into the catalog in `pnpm-workspace.yaml`; releases younger than
+7 days are not installed.
 
 ## Hard rules
 

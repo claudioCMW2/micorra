@@ -1,0 +1,48 @@
+{
+  "name": "micorra-workspace",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.8.1",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^26.0.0",
+      "onFail": "download"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.8.1",
+      "onFail": "error"
+    }
+  },
+  "scripts": {
+    "prepare": "lefthook install",
+    "check": "pnpm lint && pnpm typecheck && pnpm lint:deps && pnpm lint:unused && pnpm test",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc && pnpm -r typecheck",
+    "test": "vitest run",
+    "lint:deps": "depcruise apps packages",
+    "lint:fsd": "steiger apps/dashboard/src",
+    "lint:unused": "knip",
+    "lint:secrets": "secretlint \"**/*\"",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@changesets/cli": "catalog:",
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "@feature-sliced/steiger-plugin": "catalog:",
+    "@secretlint/secretlint-rule-preset-recommend": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "dependency-cruiser": "catalog:",
+    "knip": "catalog:",
+    "lefthook": "catalog:",
+    "secretlint": "catalog:",
+    "steiger": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

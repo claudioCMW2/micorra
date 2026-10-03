@@ -1,0 +1,16 @@
+{
+  "name": "@micorra/i18n",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@inlang/paraglide-js": "catalog:",
+    "@inlang/plugin-message-format": "catalog:",
+    "@types/node": "catalog:",
+    "vitest": "catalog:"
+  }
+}
