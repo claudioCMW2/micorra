@@ -26,7 +26,8 @@
     "lint:fsd": "steiger apps/dashboard/src",
     "lint:unused": "knip",
     "lint:secrets": "secretlint \"**/*\"",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "lint:licenses": "pnpm licenses list --prod --json | node scripts/check-licenses.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
