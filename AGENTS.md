@@ -19,6 +19,12 @@ and local MCP servers, exposes only what is configured, and measures token cost.
 | `pnpm lint:unused` | knip: unused files, exports and dependencies |
 | `pnpm lint:fsd` | Steiger (Feature-Sliced Design); joins `check` with the first dashboard code |
 | `pnpm lint:secrets` | secretlint over the whole tree (the pre-commit hook runs it on staged files) |
+| `pnpm lint:licenses` | Production dependencies use only allowed licenses (`scripts/check-licenses.ts`) |
+
+CI (`.github/workflows/ci.yml`) runs `pnpm check` on Windows, macOS and Linux (x64 and arm64), plus
+the vulnerability audit, registry signatures, licenses, secrets (secretlint and gitleaks over the
+whole history) and the `DESIGN.md` lint. A reviewed advisory with no fix goes to `auditConfig` in
+`pnpm-workspace.yaml` with its reason.
 
 Packages are ES modules run by Node's type stripping: erasable TypeScript only, imports with `.ts`
 extensions. A new dependency goes into the catalog in `pnpm-workspace.yaml`; releases younger than

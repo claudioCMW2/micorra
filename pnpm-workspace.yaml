@@ -11,6 +11,12 @@ trustPolicyExclude:
 allowBuilds:
   lefthook: false
 
+# Reviewed advisories with no fix. GHSA-vfj7-8cjw-p6xm (braces, via Steiger): stack exhaustion from
+# deeply nested glob patterns; only our own lint patterns reach it.
+auditConfig:
+  ignoreGhsas:
+    - GHSA-vfj7-8cjw-p6xm
+
 # dependency-cruiser parses TypeScript through the compiler API, which TypeScript 7 does not ship yet.
 packageExtensions:
   dependency-cruiser:

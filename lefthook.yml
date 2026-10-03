@@ -24,16 +24,13 @@ pre-push:
     - name: tests
       run: pnpm exec vitest run --changed origin/main
 
+# pnpm install is a no-op in milliseconds when nothing changed.
 post-merge:
   jobs:
     - name: install
       run: pnpm install
-      files: git diff --name-only HEAD@{1} HEAD
-      glob: "pnpm-lock.yaml"
 
 post-checkout:
   jobs:
     - name: install
       run: pnpm install
-      files: git diff --name-only {1} {2}
-      glob: "pnpm-lock.yaml"
