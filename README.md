@@ -20,7 +20,8 @@ tokens.
 - **Projects.** Each repository can declare the tools it needs in `.micorra/project.yaml`, shared
   through git.
 - **Token cost in plain sight.** Schema and output tokens per tool, client and project.
-- **Memory shared across providers** and a **code graph** of your repositories.
+- **Memory shared across providers.** Code search and code graph servers are optional: add them
+  from the catalog like any other MCP server.
 - **Any machine.** Windows, macOS and Linux; x64 and arm64; behind corporate proxies.
 - **Headless first.** Everything works from a config file and the CLI; the dashboard is optional.
 
